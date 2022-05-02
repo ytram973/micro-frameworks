@@ -10,7 +10,7 @@ abstract class controller
         
     }
 
-    function renderView($options=["error404"=>"Page not found"]){
+    function renderView( array $options=["error404"=>"Page not found"]){
         require $this->path;
         
     }

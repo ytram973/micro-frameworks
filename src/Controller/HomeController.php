@@ -4,7 +4,7 @@ require_once "./../lib/controller/Controller.php";
 
 class HomeController extends controller{
      public function __construct() {
-         parent::__construct("./../template/home.php");
+         parent::__construct("./../template/view/home.php");
          
      }
 
