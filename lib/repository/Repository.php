@@ -2,9 +2,9 @@
 
 abstract class Repository
 {
-    private const DATABASE_NAME = "mysql:host=localhost;port=3306;dbname=micro_framework";
-    private const DATABASE_USERNAME = "root";
-    private const DATABASE_PASSWORD = "root";
+    private const DATABASE_NAME = "mysql:host=db.3wa.io;port=3306;dbname=martyrabord_micro_framework";
+    private const DATABASE_USERNAME = "martyrabord";
+    private const DATABASE_PASSWORD = "e165e50f868486cc5eaa3ad45b7a9f23";
 
     public function __construct()
     {
@@ -40,7 +40,7 @@ abstract class Repository
     protected function checkTableExists($table): bool
     {
         $tableNotExist = true;
-        $query = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table' AND TABLE_SCHEMA = 'micro_framework' ;";
+        $query = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '$table' AND TABLE_SCHEMA = 'martyrabord_micro_framework' ;";
         $result = $this->executeQuery($query)->fetchAll(PDO::FETCH_BOTH);
         if (is_countable($result) && count($result) > 0) $tableNotExist = false;
         return $tableNotExist;
