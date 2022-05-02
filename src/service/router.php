@@ -3,6 +3,7 @@
 require "./../src/Controller/HomeController.php";
 require "./../src/Controller/LinkController.php";
 require "./../src/Controller/Error404Controller.php";
+require "./../src/Controller/ArticleController.php";
 
 $page = null;
 
@@ -22,11 +23,15 @@ switch ($page) {
 
 
     case 'link':
-        $controller = new linkController;
+        $controller = new LinkController;
         $controller->renderView();
         break;
 
 
+    case 'article':
+        $controller = new ArticleController;
+        $controller->renderView();
+        break;
 
     default:
         $controller = new Error404Controller();
