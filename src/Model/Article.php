@@ -8,7 +8,7 @@ class article{
 
     private string $title;
 
-    private string $publishedDate;
+    private ?string $published_date;
 
 
     public function getId(): int
@@ -37,14 +37,14 @@ class article{
         $this->title = $title;
     }
 
-    public function getPublishedDate(): string
+    public function getPublishedDate(): ?string
     {
-        return $this->publishedDate;
+        return $this->published_date;
     }
 
-    public function setPublishedDate(string $publishedDate): void
+    public function setPublishedDate(string $published_date): void
     {
-        $this->publishedDate = $publishedDate;
+        $this->published_date = $published_date;
     }
 
 

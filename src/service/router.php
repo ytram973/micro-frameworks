@@ -30,7 +30,7 @@ switch ($page) {
 
     case 'article':
         $controller = new ArticleController;
-        $controller->renderView();
+        $controller->index();
         break;
 
     default:

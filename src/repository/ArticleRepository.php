@@ -1,15 +1,18 @@
 <?php
 
+require_once "./../lib/repository/Repository.php";
+require_once "./../src/Model/Article.php";
+
 class ArticleRepository extends Repository
 {
-    CONST ARTICLE_TABLE="CREATE TABLE IF NOT EXISTS Article ( 
+    CONST ARTICLE_TABLE="CREATE TABLE IF NOT EXISTS article ( 
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     content TEXT NOT NULL,
     title VARCHAR(255),
     published_date DATETIME);";
 
 
-    CONST ARTICLE_INSERT="INSERT INTO Article(content, title) VALUE('titre','text'), ('varchar', 'datetime');";
+    CONST ARTICLE_INSERT="INSERT INTO article(content, title, published_date) VALUE('titre','text','2022-02-02 00:00:00'), ('varchar', 'datetime', null);";
 
 
     private $table;
@@ -22,16 +25,13 @@ class ArticleRepository extends Repository
     
     public function findAll():array
     {
-        $tableau=[];
-
-        $query = "('SELECT * from Article')";
         $this->createTableIfNotExistes($this->table,self::ARTICLE_TABLE,self::ARTICLE_INSERT);
+        $query = "SELECT * from $this->table;";
 
-        $this->executeQuery($this->query);
+        $result = $this->executeQuery($query);
 
-        
-
-        fetchAll( fetch_class, "article")
+        return $result -> fetchAll(PDO::FETCH_CLASS, $this->table);
+        // fetchAll( fetch_class, "article")
 
     }
 }
