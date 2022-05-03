@@ -33,6 +33,11 @@ switch ($page) {
         $controller->index();
         break;
 
+        case 'connexion':
+            $controller = new ConnexionController;
+            $controller->index();
+            break;
+
     default:
         $controller = new Error404Controller();
         $controller->renderView();
