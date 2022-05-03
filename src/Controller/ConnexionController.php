@@ -13,13 +13,11 @@ class ConnexionController extends controller
 
     public function index()
     {
-        if (condition) {
-            # code...
-            $_POST = [username, password];
-            $userRepository = new UserRepository("connexion");
+        if (isset($_POST["username"]) && isset($_POST["password"])) {
+            $userRepository = new UserRepository("user");
             $user = $userRepository->findOneByUsername($_POST["username"]);
-            if ($user  &&  password_verify($_POST["password"] ,$user->getPassword()) ) {
-                # code...
+            if (empty($user ) && password_verify($_POST["password"] ,$user->getPassword()) ) {
+                
             }
         }
         $this->renderView(["user" => $user]);
