@@ -16,10 +16,6 @@ class article{
         return $this->id;
     }
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
 
     public function getContent(): string
     {
@@ -28,7 +24,7 @@ class article{
 
     public function setContent(string $content): void
     {
-        $this->id = $content;
+        $this->content = $content;
     }
 
     public function getTitle(): string
@@ -38,7 +34,7 @@ class article{
 
     public function setTitle(string $title): void
     {
-        $this->id = $title;
+        $this->title = $title;
     }
 
     public function getPublishedDate(): string
@@ -48,7 +44,7 @@ class article{
 
     public function setPublishedDate(string $publishedDate): void
     {
-        $this->id = $publishedDate;
+        $this->publishedDate = $publishedDate;
     }
 
 
