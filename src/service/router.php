@@ -5,6 +5,8 @@ require "./../src/Controller/LinkController.php";
 require "./../src/Controller/Error404Controller.php";
 require "./../src/Controller/ConnexionController.php";
 require "./../src/Controller/ArticleController.php";
+require "./../src/Controller/AdminController.php";
+
 
 $page = null;
 
@@ -38,6 +40,11 @@ switch ($page) {
             $controller = new ConnexionController;
             $controller->index();
             break;
+
+            case 'admin':
+                $admin = new AdminController;
+                $admin->index();
+                break;
 
     default:
         $controller = new Error404Controller();

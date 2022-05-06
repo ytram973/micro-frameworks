@@ -58,4 +58,6 @@ abstract class Repository
             $this->executeQuery($insretQuery);
         }
     }
+
+    
 }

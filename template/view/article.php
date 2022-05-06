@@ -6,8 +6,9 @@ include_once "./../template/template_part/_navbar.php";
 
 <h1>article</h1>
 
-<?php var_dump($options) ?>
+<?php var_dump($_SESSION); ?>
 
+<?php include_once "./../template/view/add_article.php"; ?>
 
 <table class="table">
     <thead>

@@ -36,4 +36,13 @@ class ArticleRepository extends Repository
         // fetchAll( fetch_class, "article")
 
     }
+     function insert($content,$title,$date){
+
+        $value = [":contentVar"=>$content,":titleVar"=>$title,"dateVar"=>$date];
+        $query = "INSERT INTO article(content, title, published_date) VALUE(:contentVar,:titleVar,:dateVar);";
+        
+        $result = $this->executeQuery($query,$value);
+
+        return $result -> fetchAll(PDO::FETCH_CLASS, $this->table);
+    }
 }
