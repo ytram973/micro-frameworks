@@ -2,6 +2,8 @@
 
 require_once "./../lib/repository/Repository.php";
 require_once "./../src/Model/Article.php";
+require_once "./../src/Model/User.php";
+
 
 class ArticleRepository extends Repository
 {

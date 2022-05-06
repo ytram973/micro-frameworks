@@ -1,10 +1,10 @@
-<?
+<?php
 
 class user{
     private int $id;
     private string $username;
     private string $password;
-    private string $published_date;
+    // private string $published_date;
 
 
     public function getId(): int
@@ -33,13 +33,13 @@ class user{
         $this->password = $password;
     }
 
-    public function getPublishedDate(): ?string
-    {
-        return $this->published_date;
-    }
+    // public function getPublishedDate(): ?string
+    // {
+    //     return $this->published_date;
+    // }
 
-    public function setPublishedDate(string $published_date): void
-    {
-        $this->published_date = $published_date;
-    }
+    // public function setPublishedDate(string $published_date): void
+    // {
+    //     $this->published_date = $published_date;
+    // }
 }

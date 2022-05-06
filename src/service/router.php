@@ -3,6 +3,7 @@
 require "./../src/Controller/HomeController.php";
 require "./../src/Controller/LinkController.php";
 require "./../src/Controller/Error404Controller.php";
+require "./../src/Controller/ConnexionController.php";
 require "./../src/Controller/ArticleController.php";
 
 $page = null;
