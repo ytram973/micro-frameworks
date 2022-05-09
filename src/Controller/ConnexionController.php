@@ -15,7 +15,7 @@ class ConnexionController extends controller
     {
         $responseType='';
 
-        var_dump('fziej');
+        
         if (isset($_POST["username"]) 
             && isset($_POST["password"])
             && strlen(trim($_POST["username"]))
@@ -28,6 +28,7 @@ class ConnexionController extends controller
             $user = $userRepository->findOneByUsername($_POST["username"]);
 
             if (!empty($user ) && password_verify($_POST["password"] ,$user->getPassword()) ) {
+                var_dump("lol");
                 $_SESSION["user_is_connexion"]=true;
                 $responseType ="success";
             }

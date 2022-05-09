@@ -13,9 +13,18 @@ class DeleteController extends controller
 
     public function index()
     {
+
         $articleRepository = new ArticleRepository("article");
-        $articleRepository->delete();
-        $articles = $articleRepository->findAll();
-        $this->renderView(["articles" => $articles]);
+        if (
+            isset($_SESSION["user_is_connexion"])
+            && $_SESSION["user_is_connexion"]
+            && isset($_GET["id"])
+            ) {
+                $article = $articleRepository->find($_GET["id"]);
+            if (!empty($article)) {
+                $articleRepository->deleted($article);
+            }
+        }
+        $this->renderView(["articles" => $articleRepository->findAll()]);
     }
 }

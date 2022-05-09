@@ -18,7 +18,9 @@ include_once "./../template/template_part/_navbar.php";
             <th scope="col">Title</th>
             <th scope="col">Content</th>
             <th scope="col">Published_date</th>
+            <?php if (isset($_SESSION["user_is_connexion"]) && $_SESSION["user_is_connexion"]) { ?>
             <th scope="col">Action</th>
+            <?php } ?>
         </tr>
     </thead>
     <tbody>
@@ -28,8 +30,14 @@ include_once "./../template/template_part/_navbar.php";
                 <td><?php echo $article->getTitle() ?></td>
                 <td><?php echo $article->getContent() ?></td>
                 <td><?php echo $article->getPublishedDate() ?></td>
-                <td><a href="/?page=delete&id=<?php
-                echo $article->getId()?>">supprimer</a></td>
+                
+                
+                <?php if (isset($_SESSION["user_is_connexion"]) && $_SESSION["user_is_connexion"]) { ?>
+                <td>                    
+                    <a href="/?page=delete&id=<?php
+                echo $article->getId()?>">supprimer</a> 
+                </td>
+                <?php } ?>
             </tr>
         <?php } ?>
     </tbody>

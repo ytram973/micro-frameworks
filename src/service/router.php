@@ -37,20 +37,20 @@ switch ($page) {
         $controller->index();
         break;
 
-        case 'connexion':
-            $controller = new ConnexionController;
-            $controller->index();
-            break;
+    case 'connexion':
+        $controller = new ConnexionController;
+        $controller->index();
+        break;
 
-            case 'admin':
-                $admin = new AdminController;
-                $admin->index();
-                break;
+    case 'admin':
+        $admin = new AdminController;
+        $admin->index();
+        break;
 
-                case 'delete':
-                    $admin = new DeleteController;
-                    $admin->index();
-                    break;
+    case 'delete':
+        $admin = new DeleteController;
+        $admin->index();
+        break;
 
     default:
         $controller = new Error404Controller();
