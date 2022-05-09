@@ -10,7 +10,7 @@ include_once "./../template/template_part/_navbar.php";
 
 <?php include_once "./../template/view/add_article.php"; ?>
 
-<form action="" method="post">
+<form action="" method="">
 <table class="table">
     <thead>
         <tr>
@@ -28,7 +28,8 @@ include_once "./../template/template_part/_navbar.php";
                 <td><?php echo $article->getTitle() ?></td>
                 <td><?php echo $article->getContent() ?></td>
                 <td><?php echo $article->getPublishedDate() ?></td>
-                <td><a href="/?page=delete">supprimer</a></td>
+                <td><a href="/?page=delete&id=<?php
+                echo $article->getId()?>">supprimer</a></td>
             </tr>
         <?php } ?>
     </tbody>

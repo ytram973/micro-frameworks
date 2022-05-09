@@ -46,10 +46,13 @@ class ArticleRepository extends Repository
         return $result -> fetchAll(PDO::FETCH_CLASS, $this->table);
     }
 
-    // function delete(){
-    //     $id = $_GET["id"];
-    //     $query = "DELETE FROM article WHERE id = ".$id ;
+    function delete(){
+        $id = $_GET["id"];
 
-        
-    // }
+        $query = "DELETE FROM article WHERE id = $id";
+
+        $result = $this->executeQuery($query);
+
+        return $result;
+    }
 }
