@@ -7,6 +7,8 @@ require "./../src/Controller/ConnexionController.php";
 require "./../src/Controller/ArticleController.php";
 require "./../src/Controller/AdminController.php";
 require "./../src/Controller/DeleteController.php";
+require "./../src/Controller/UpdateController.php";
+
 
 
 $page = null;
@@ -49,6 +51,11 @@ switch ($page) {
 
     case 'delete':
         $admin = new DeleteController;
+        $admin->index();
+        break;
+
+    case 'update':
+        $admin = new UpdateController;
         $admin->index();
         break;
 

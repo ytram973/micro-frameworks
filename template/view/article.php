@@ -32,12 +32,19 @@ include_once "./../template/template_part/_navbar.php";
                 <td><?php echo $article->getPublishedDate() ?></td>
                 
                 
-                <?php if (isset($_SESSION["user_is_connexion"]) && $_SESSION["user_is_connexion"]) { ?>
-                <td>                    
-                    <a href="/?page=delete&id=<?php
-                echo $article->getId()?>">supprimer</a> 
-                </td>
-                <?php } ?>
+                    <?php if (isset($_SESSION["user_is_connexion"]) && $_SESSION["user_is_connexion"]) { ?>
+                    <td>                    
+                        <a href="/?page=delete&id=<?php
+                    echo $article->getId()?>">supprimer</a> 
+                    </td>
+                    <?php } ?>
+
+                    <?php if (isset($_SESSION["user_is_connexion"]) && $_SESSION["user_is_connexion"]) { ?>
+                    <td>                    
+                        <a href="/?page=update&id=<?php
+                    echo $article->getId()?>">modifier</a> 
+                    </td>
+                    <?php } ?>
             </tr>
         <?php } ?>
     </tbody>

@@ -59,9 +59,6 @@ class ArticleRepository extends Repository
         if (count($result = ($this->executeQuery($query, $params))->fetchAll(PDO::FETCH_CLASS, "article")) > 0) {
             $article = $result[0];
         }
-
-
-
         return $article;
     }
 
@@ -76,17 +73,14 @@ class ArticleRepository extends Repository
         $this->executeQuery($query, $params);
     }
 
+    public function update($content, $title, $article){
+        echo "fromage";
+        $value = [":contentVar" => $content, ":titleVar" => $title, ":id" => $article->getId()];
+        $query = "UPDATE article SET content =:contentVar , title = :titleVariooa WHERE id = :id ;";
+        
+        
+        $result = $this->executeQuery($query, $value);
 
-
-
-    // function delete(){
-
-    //     $id = $_GET["id"];
-
-    //     $query = "DELETE FROM article WHERE id = $id";
-
-    //     $result = $this->executeQuery($query);
-
-    //     return $result;
-    // }
+        return $result->fetchAll(PDO::FETCH_CLASS, $this->table);
+    }
 }
