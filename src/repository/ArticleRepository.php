@@ -73,14 +73,11 @@ class ArticleRepository extends Repository
         $this->executeQuery($query, $params);
     }
 
-    public function update($content, $title, $article){
-        echo "fromage";
+    public function update($content, $title, $article)
+    {
         $value = [":contentVar" => $content, ":titleVar" => $title, ":id" => $article->getId()];
-        $query = "UPDATE article SET content =:contentVar , title = :titleVariooa WHERE id = :id ;";
-        
-        
+        $query = "UPDATE article SET content =:contentVar , title = :titleVar WHERE id = :id ;";
         $result = $this->executeQuery($query, $value);
-
         return $result->fetchAll(PDO::FETCH_CLASS, $this->table);
     }
 }

@@ -19,17 +19,29 @@ class UpdateController extends controller
             && $_SESSION["user_is_connexion"]
             && isset($_GET["id"])
             ) {
+                $responseType ="";
                 $article = $articleRepository->find($_GET["id"]);
             if (!empty($article)
-                &&isset($_POST["title"])
+                && isset($_POST["title"])
                 && isset($_POST["content"])) {
                 $content = $_POST["content"];
                 $title = $_POST["title"];
+
+                if (trim($content)
+                && trim($title)
+                && strlen($content) 
+                && strlen($title) 
+                && strlen($title) <257
+                ) {
+                    
+                    $articleRepository->update($content, $title, $article);
+                    $responseType ="success";
+                }else 
+                $responseType ="error";
                 
 
-                $articleRepository->update($content, $title, $article);
             }
         }
-        $this->renderView(["articles" => $articleRepository->findAll()]);
+        $this->renderView(["articles" => $articleRepository->findAll(),"responseType" => $responseType]);
     }
 }
